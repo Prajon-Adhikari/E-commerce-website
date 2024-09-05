@@ -12,7 +12,7 @@ export default function Navbar(props) {
     <div className="navbar-container">
       <h4>ELECTRONICS</h4>
       <div className="nav-elements">
-        <Link to="/">Home </Link>
+        <Link to="/">HOME</Link>
         <Link to="/services">SERVICES</Link>
         <Link to="/category">CATEGORY</Link>
         <Link to="/blogs">BLOGS</Link>

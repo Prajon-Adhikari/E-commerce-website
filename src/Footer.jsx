@@ -1,4 +1,11 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faXTwitter,
+  faWhatsapp,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
   return (
@@ -29,6 +36,18 @@ export default function Footer() {
         <p> Read Our Blog</p>
         <p> Carrer</p>
         <p> Security </p>
+      </div>
+      <div className="contacts">
+        <div className="social-media">
+          <FontAwesomeIcon icon={faFacebook} className="media facebook-icon" />
+          <FontAwesomeIcon icon={faInstagram} className="media insta-icon" />
+          <FontAwesomeIcon icon={faXTwitter} className="media x-icon" />
+          <FontAwesomeIcon icon={faWhatsapp} className="media whatsapp-icon" />
+        </div>
+        <div className="contact-numbers">
+          <p>9876543210</p>
+          <p>056-400056</p>
+        </div>
       </div>
     </div>
   );

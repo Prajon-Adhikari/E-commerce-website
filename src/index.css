@@ -17,6 +17,7 @@ body{
     background-color: white;
     z-index: 1;
     width: 100%;
+    border-bottom: 1px solid rgb(94, 93, 93);
 }
 
 .nav-elements a{
@@ -164,6 +165,35 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.add-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .add-button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  .add-button:hover{
+    background-color: rgb(33, 32, 32);
+  }
+  
+  .add-button:hover span {
+    padding-right: 25px;
+  }
+  
+  .add-button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
 /* Footer */
 .footer-container{
     margin: 30px 0px 0px 0px;
@@ -176,4 +206,36 @@ body{
 
 .shop-container,.help-container,.company-container p{
     font-size: 0.8rem;
+}
+
+/* contact */
+.media{
+    margin: 1rem;
+    font-size: 1.6rem;
+    cursor: pointer; 
+}
+
+.contact-numbers p{
+    font-size: 1.6rem;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.facebook-icon:hover{
+    color: blue;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.insta-icon:hover{
+    color: rgb(216, 73, 73);
+}
+
+.x-icon:hover{
+    color: black;
+}
+
+.whatsapp-icon:hover{
+    color: green;
 }

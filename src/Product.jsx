@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default function Product(props) {
   return (
     <div className="product-container">
@@ -13,7 +12,7 @@ export default function Product(props) {
           <h3>Rs. {props.price}</h3>
         </div>
         <button className="add-button" onClick={props.onAddToCart}>
-          Add To Cart
+          <span>Add To Cart</span>
         </button>
       </div>
     </div>
