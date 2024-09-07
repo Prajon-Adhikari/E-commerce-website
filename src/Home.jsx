@@ -10,7 +10,7 @@ export default function Home() {
     <div>
       <div
         id="carouselExampleIndicators"
-        className="carousel slide"
+        className="carousel slide hero-image"
         data-bs-ride="carousel"
       >
         <div className="carousel-indicators">

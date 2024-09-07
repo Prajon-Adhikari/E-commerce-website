@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import { counterCartVAlue } from "./Context";
 
 export default function Product(props) {
+  const value = useContext(counterCartVAlue);
+  const { id, image, productName, price } = props.data;
   return (
     <div className="product-container">
       <div className="product-img-container">
-        <img src={props.image} alt="" className="product-img" />
+        <img src={image} alt="" className="product-img" />
       </div>
       <div className="product-information">
         <div className="info">
-          <h3>{props.productName}</h3>
-          <h3>Rs. {props.price}</h3>
+          <h3>{productName}</h3>
+          <h3>Rs. {price}</h3>
         </div>
-        <button className="add-button" onClick={props.onAddToCart}>
+        <button
+          className="add-button"
+          onClick={() => value.handleCartValue(id)}
+        >
           <span>Add To Cart</span>
         </button>
       </div>

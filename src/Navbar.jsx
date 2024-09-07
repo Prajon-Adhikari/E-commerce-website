@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import {
@@ -6,8 +6,11 @@ import {
   faUser,
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
+import { counterCartVAlue } from "./Context";
 
-export default function Navbar(props) {
+export default function Navbar() {
+  const value = useContext(counterCartVAlue);
+
   return (
     <div className="navbar-container">
       <h4>ELECTRONICS</h4>
@@ -30,19 +33,12 @@ export default function Navbar(props) {
             <span>Login</span>
           </button>
         </div>
-        <div className=" right-elements">
-          <Link to="/cart">
-            <button className="cart">
-              {" "}
-              <FontAwesomeIcon icon={faCartShopping} />
-              <span
-                className={props.cartValue == 0 ? "ellapsed" : "cart-value"}
-              >
-                {props.cartValue}
-              </span>
-            </button>
-          </Link>
-        </div>
+        <Link to="/cart" className=" right-elements ">
+          <FontAwesomeIcon icon={faCartShopping} className="cart-button" />
+          <span className={value.cartValue == 0 ? "ellapsed" : "cart-value"}>
+            {value.cartValue}
+          </span>
+        </Link>
       </div>
     </div>
   );
