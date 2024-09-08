@@ -288,3 +288,26 @@ body{
     font-weight: 500;
     font-size: 1.6rem;
 }
+
+/* qunatity-handler */
+.quantity-handler{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quantity-handler p{
+    padding-top: 12px;
+}
+
+.plus-button,.minus-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.plus-icon,.minus-icon{
+    font-size: 0.6rem;
+}

@@ -1,12 +1,35 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { counterCartVAlue } from "./Context";
 import { ProductData } from "./ProductData";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 export default function Cart() {
   const [totalValue, setTotalValue] = useState(0);
-  const { idValue, cartValue } = useContext(counterCartVAlue);
+  const { setCartValue, idValue, cartValue, quantity, setQuantity } =
+    useContext(counterCartVAlue);
 
-  function handleTotalVAlue(amount) {
+  useEffect(() => {
+    let initialTotal = 0;
+    idValue.forEach((idVal) => {
+      const product = ProductData.find((p) => p.id === idVal);
+      if (product) {
+        initialTotal += product.price * quantity[product.id];
+      }
+    });
+    if (totalValue == 0) {
+      setCartValue(0);
+    }
+    setTotalValue(initialTotal);
+  }, [idValue, quantity]);
+
+  function incrementQuantity(id, amount) {
+    setQuantity((prev) => ({ ...prev, [id]: prev[id] + 1 }));
+    setTotalValue((totalValue) => parseInt(totalValue) + parseInt(amount));
+  }
+
+  function decrementQuantity(id, amount) {
+    setQuantity((prev) => ({ ...prev, [id]: prev[id] - 1 }));
     setTotalValue((totalValue) => parseInt(totalValue) + parseInt(amount));
   }
 
@@ -19,20 +42,44 @@ export default function Cart() {
           {idValue.map((idVal, index) =>
             ProductData.map((products, index) =>
               products.id == idVal ? (
-                <div className="cart-box-container" key={index}>
-                  <div className="cart-image-container">
-                    <img
-                      src={products.image}
-                      alt=""
-                      className="cart-image"
-                      onLoad={() => handleTotalVAlue(products.price)}
-                    />
+                quantity[products.id] > 0 ? (
+                  <div className="cart-box-container" key={index}>
+                    <div className="cart-image-container">
+                      <img src={products.image} alt="" className="cart-image" />
+                    </div>
+                    <div className="cart-details">
+                      <p>{products.productName}</p>
+                      <p>Rs : {products.price}</p>
+                      <div className="quantity-handler">
+                        <button
+                          className="plus-button"
+                          onClick={() => {
+                            incrementQuantity(products.id, products.price);
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faPlus}
+                            className="plus-icon"
+                          />
+                        </button>
+                        <p>{quantity[products.id]}</p>
+                        <button
+                          className="minus-button"
+                          onClick={() => {
+                            decrementQuantity(products.id, products.price);
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faMinus}
+                            className="minus-icon"
+                          />
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="cart-details">
-                    <p>{products.productName}</p>
-                    <p>Rs : {products.price}</p>
-                  </div>
-                </div>
+                ) : (
+                  ""
+                )
               ) : (
                 ""
               )
