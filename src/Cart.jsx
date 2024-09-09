@@ -17,20 +17,19 @@ export default function Cart() {
         initialTotal += product.price * quantity[product.id];
       }
     });
-    if (totalValue == 0) {
-      setCartValue(0);
-    }
     setTotalValue(initialTotal);
   }, [idValue, quantity]);
 
   function incrementQuantity(id, amount) {
     setQuantity((prev) => ({ ...prev, [id]: prev[id] + 1 }));
     setTotalValue((totalValue) => parseInt(totalValue) + parseInt(amount));
+    setCartValue((cartValue) => cartValue + 1);
   }
 
   function decrementQuantity(id, amount) {
     setQuantity((prev) => ({ ...prev, [id]: prev[id] - 1 }));
     setTotalValue((totalValue) => parseInt(totalValue) + parseInt(amount));
+    setCartValue((cartValue) => cartValue - 1);
   }
 
   return (
