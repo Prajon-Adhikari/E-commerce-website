@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import {
@@ -7,9 +7,33 @@ import {
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import { counterCartVAlue } from "./Context";
+import { ProductData } from "./ProductData";
 
 export default function Navbar() {
+  const productList = ProductData.map((products) => products.productName);
   const value = useContext(counterCartVAlue);
+  const [productName, setProductName] = useState(productList);
+  const [searchVal, setSearchVal] = useState("");
+  const [displayList, setDisplayList] = useState(false);
+
+  function handleSearchVal(event) {
+    setSearchVal(event.target.value);
+    setDisplayList(true);
+    if (searchVal === "") {
+      setProductName(productList);
+      return;
+    }
+    const filterBySearch = productList.filter((item) => {
+      if (item.toLowerCase().includes(searchVal.toLowerCase())) {
+        return item;
+      }
+    });
+    setProductName(filterBySearch);
+  }
+
+  function handleHideList() {
+    setDisplayList(false);
+  }
 
   return (
     <div className="navbar-container">
@@ -21,11 +45,37 @@ export default function Navbar() {
         <Link to="/blogs">BLOGS</Link>
       </div>
       <div className="right-nav-elements right-elements">
-        <div className="search-bar-container">
-          <input type="text" className="search-bar" placeholder="Search..." />
-          <button className="search-button">
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
+        <div className="searchbar-container">
+          <div className="search-bar-container">
+            <input
+              type="text"
+              className="search-bar"
+              placeholder="Search..."
+              value={searchVal}
+              onChange={(e) => handleSearchVal(e)}
+            />
+            <button className="search-button">
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
+          </div>
+          <div className={displayList ? "product-list" : "ellapsed"}>
+            {productName.map((product, index) => {
+              return (
+                <div
+                  key={index}
+                  className="product-list-searchbar"
+                  onClick={() => {
+                    setSearchVal(product);
+                    setTimeout(() => {
+                      handleHideList();
+                    }, 0);
+                  }}
+                >
+                  {product}
+                </div>
+              );
+            })}
+          </div>
         </div>
         <div className=" right-elements">
           <button className="login-container">

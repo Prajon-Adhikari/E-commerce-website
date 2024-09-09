@@ -43,6 +43,15 @@ body{
     margin: 16px;
 }
 
+.product-list{
+   background-color: rgb(249, 248, 243);
+   border-radius: 10px;
+   width: 320px;
+   padding: 16px;
+   position: absolute;
+   cursor: pointer;
+}
+
 .search-bar-container{
     display: flex;
     width: 360px;
