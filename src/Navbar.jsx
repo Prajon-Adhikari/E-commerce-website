@@ -5,26 +5,26 @@ import {
   faSearch,
   faUser,
   faCartShopping,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { counterCartVAlue } from "./Context";
 import { ProductData } from "./ProductData";
 
 export default function Navbar() {
   const productList = ProductData.map((products) => products.productName);
-  const value = useContext(counterCartVAlue);
+  const data = useContext(counterCartVAlue);
   const [productName, setProductName] = useState(productList);
-  const [searchVal, setSearchVal] = useState("");
   const [displayList, setDisplayList] = useState(false);
 
   function handleSearchVal(event) {
-    setSearchVal(event.target.value);
+    data.setSearchVal(event.target.value);
     setDisplayList(true);
-    if (searchVal === "") {
+    if (data.searchVal === "") {
       setProductName(productList);
       return;
     }
     const filterBySearch = productList.filter((item) => {
-      if (item.toLowerCase().includes(searchVal.toLowerCase())) {
+      if (item.toLowerCase().includes(data.searchVal.toLowerCase())) {
         return item;
       }
     });
@@ -32,6 +32,12 @@ export default function Navbar() {
   }
 
   function handleHideList() {
+    setDisplayList(false);
+  }
+
+  function clearSearchVal() {
+    data.setProductsItem("");
+    data.setSearchVal("");
     setDisplayList(false);
   }
 
@@ -51,10 +57,19 @@ export default function Navbar() {
               type="text"
               className="search-bar"
               placeholder="Search..."
-              value={searchVal}
+              value={data.searchVal}
               onChange={(e) => handleSearchVal(e)}
             />
-            <button className="search-button">
+            <div className="xmark-container" onClick={clearSearchVal}>
+              <FontAwesomeIcon
+                icon={faXmark}
+                className={data.searchVal === "" ? "ellapsed" : "xmark-icon"}
+              />
+            </div>
+            <button
+              className="search-button"
+              onClick={() => data.handleSearchItem(data.searchVal)}
+            >
               <FontAwesomeIcon icon={faSearch} />
             </button>
           </div>
@@ -65,7 +80,7 @@ export default function Navbar() {
                   key={index}
                   className="product-list-searchbar"
                   onClick={() => {
-                    setSearchVal(product);
+                    data.setSearchVal(product);
                     setTimeout(() => {
                       handleHideList();
                     }, 0);
@@ -85,8 +100,8 @@ export default function Navbar() {
         </div>
         <Link to="/cart" className=" right-elements ">
           <FontAwesomeIcon icon={faCartShopping} className="cart-button" />
-          <span className={value.cartValue == 0 ? "ellapsed" : "cart-value"}>
-            {value.cartValue}
+          <span className={data.cartValue == 0 ? "ellapsed" : "cart-value"}>
+            {data.cartValue}
           </span>
         </Link>
       </div>
