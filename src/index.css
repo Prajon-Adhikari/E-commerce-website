@@ -33,6 +33,17 @@ body{
     background-color: rgb(224, 222, 222);
 }
 
+.dropdown{
+    border: none;
+    outline: none;
+    color: grey;
+    background-color: transparent;
+}
+
+.dropdown option{
+    text-align: center;
+}
+
 .right-nav-elements{
     display: flex;
     justify-content: center;

@@ -47,7 +47,20 @@ export default function Navbar() {
       <div className="nav-elements">
         <Link to="/">HOME</Link>
         <Link to="/services">SERVICES</Link>
-        <Link to="/category">CATEGORY</Link>
+        <Link to="/">
+          <select
+            name=""
+            id=""
+            className="dropdown"
+            onChange={(e) => data.handleCategoryItem(e.target.value)}
+          >
+            <option value="">CATEGORY</option>
+            <option value="airpod">AIRPOD</option>
+            <option value="watch">WATCH</option>
+            <option value="laptop">LAPTOP</option>
+            <option value="speaker">SPEAKER</option>
+          </select>
+        </Link>
         <Link to="/blogs">BLOGS</Link>
       </div>
       <div className="right-nav-elements right-elements">

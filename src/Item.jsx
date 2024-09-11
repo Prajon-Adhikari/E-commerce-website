@@ -10,9 +10,13 @@ export default function Item() {
     <div className="products">
       <div className="products-element">
         {data.productsItem == ""
-          ? ProductData.map((products, index) => (
-              <Product key={products.id} data={products} />
-            ))
+          ? data.categoryItem == ""
+            ? ProductData.map((products, index) => (
+                <Product key={products.id} data={products} />
+              ))
+            : data.categoryItem.map((products, index) => (
+                <Product key={products.id} data={products} />
+              ))
           : data.productsItem.map((products, index) => (
               <Product key={products.id} data={products} />
             ))}

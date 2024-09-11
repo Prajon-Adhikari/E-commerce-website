@@ -19,6 +19,7 @@ export default function App() {
   const [quantity, setQuantity] = useState(getDeafultQuantity());
   const [searchVal, setSearchVal] = useState("");
   const [productsItem, setProductsItem] = useState([]);
+  const [categoryItem, setCategoryItem] = useState([]);
 
   function handleCartValue(id) {
     console.log("clicked");
@@ -33,6 +34,14 @@ export default function App() {
     );
     setProductsItem(filterdItem);
     console.log(productsItem);
+  }
+
+  function handleCategoryItem(categorySelected) {
+    const filterdCategory = ProductData.filter(
+      (product) => product.category === categorySelected
+    );
+    setCategoryItem(filterdCategory);
+    console.log(categoryItem);
   }
 
   console.log(quantity);
@@ -52,6 +61,8 @@ export default function App() {
           setProductsItem,
           searchVal,
           setSearchVal,
+          handleCategoryItem,
+          categoryItem,
         }}
       >
         <BrowserRouter>
