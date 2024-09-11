@@ -15,6 +15,7 @@ export default function Navbar() {
   const data = useContext(counterCartVAlue);
   const [productName, setProductName] = useState(productList);
   const [displayList, setDisplayList] = useState(false);
+  const [clicked, setClicked] = useState("home");
 
   function handleSearchVal(event) {
     data.setSearchVal(event.target.value);
@@ -41,12 +42,28 @@ export default function Navbar() {
     setDisplayList(false);
   }
 
+  function handleClick(value) {
+    setClicked(value);
+  }
+
   return (
     <div className="navbar-container">
       <h4>ELECTRONICS</h4>
       <div className="nav-elements">
-        <Link to="/">HOME</Link>
-        <Link to="/services">SERVICES</Link>
+        <Link
+          to="/"
+          onClick={() => handleClick("home")}
+          className={clicked === "home" ? "active-link" : ""}
+        >
+          HOME
+        </Link>
+        <Link
+          to="/services"
+          onClick={() => handleClick("services")}
+          className={clicked === "services" ? "active-link" : ""}
+        >
+          SERVICES
+        </Link>
         <Link to="/">
           <select
             name=""
@@ -61,7 +78,13 @@ export default function Navbar() {
             <option value="speaker">SPEAKER</option>
           </select>
         </Link>
-        <Link to="/blogs">BLOGS</Link>
+        <Link
+          to="/blogs"
+          onClick={() => handleClick("blog")}
+          className={clicked === "blog" ? "active-link" : ""}
+        >
+          BLOGS
+        </Link>
       </div>
       <div className="right-nav-elements right-elements">
         <div className="searchbar-container">

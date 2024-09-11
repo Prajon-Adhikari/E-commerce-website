@@ -33,6 +33,10 @@ body{
     background-color: rgb(224, 222, 222);
 }
 
+.active-link{
+    border-bottom: 5px solid rgb(247, 214, 49);
+}
+
 .dropdown{
     border: none;
     outline: none;
