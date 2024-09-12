@@ -5,6 +5,7 @@ import About from "./About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { counterCartVAlue } from "./Context";
 import { ProductData } from "./ProductData";
+import LoginPage from "./LoginPage";
 
 export default function App() {
   const getDeafultQuantity = () => {
@@ -71,6 +72,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/about" element={<About />} />
+            <Route path="/login" element={<LoginPage/>} />
           </Routes>
         </BrowserRouter>
       </counterCartVAlue.Provider>

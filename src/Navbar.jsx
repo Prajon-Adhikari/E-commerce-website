@@ -119,12 +119,12 @@ export default function Navbar() {
             })}
           </div>
         </div>
-        <div className=" right-elements">
+        <Link to="/login" className=" right-elements">
           <button className="login-container">
             <FontAwesomeIcon icon={faUser} />
             <span>Login</span>
           </button>
-        </div>
+        </Link>
         <Link to="/cart" className=" right-elements ">
           <FontAwesomeIcon icon={faCartShopping} className="cart-button" />
           <span className={data.cartValue == 0 ? "ellapsed" : "cart-value"}>
