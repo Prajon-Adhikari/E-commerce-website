@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   faSearch,
   faUser,
@@ -15,7 +15,8 @@ export default function Navbar() {
   const data = useContext(counterCartVAlue);
   const [productName, setProductName] = useState(productList);
   const [displayList, setDisplayList] = useState(false);
-  const [clicked, setClicked] = useState("home");
+
+  const location = useLocation();
 
   function handleSearchVal(event) {
     data.setSearchVal(event.target.value);
@@ -42,27 +43,18 @@ export default function Navbar() {
     setDisplayList(false);
   }
 
-  function handleClick(value) {
-    setClicked(value);
-  }
-
   return (
     <div className="navbar-container">
       <h4>ELECTRONICS</h4>
       <div className="nav-elements">
-        <Link
-          to="/"
-          onClick={() => handleClick("home")}
-          className={clicked === "home" ? "active-link" : ""}
-        >
+        <Link to="/" className={location.pathname === "/" ? "active-link" : ""}>
           HOME
         </Link>
         <Link
-          to="/services"
-          onClick={() => handleClick("services")}
-          className={clicked === "services" ? "active-link" : ""}
+          to="/about"
+          className={location.pathname === "/about" ? "active-link" : ""}
         >
-          SERVICES
+          ABOUT US
         </Link>
         <Link to="/">
           <select
@@ -80,8 +72,7 @@ export default function Navbar() {
         </Link>
         <Link
           to="/blogs"
-          onClick={() => handleClick("blog")}
-          className={clicked === "blog" ? "active-link" : ""}
+          className={location.pathname === "/blog" ? "active-link" : ""}
         >
           BLOGS
         </Link>

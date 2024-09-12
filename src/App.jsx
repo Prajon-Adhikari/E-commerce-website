@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import HomePage from "./HomePage";
 import Cart from "./Cart";
+import About from "./About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { counterCartVAlue } from "./Context";
 import { ProductData } from "./ProductData";
@@ -69,6 +70,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </BrowserRouter>
       </counterCartVAlue.Provider>
