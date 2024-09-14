@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faApple, faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 export default function Login() {
   return (
@@ -20,8 +22,14 @@ export default function Login() {
             Sign Up
           </Link>
           <p>or</p>
-          <button className="inputbar signin-btn">SIGN IN WITH GOOGLE</button>
-          <button className="inputbar signin-btn">SIGN IN WITH APPLE</button>
+          <button className="inputbar signin-btn">
+            <FontAwesomeIcon icon={faGoogle} className="brand-icon" />
+            SIGN IN WITH GOOGLE
+          </button>
+          <button className="inputbar signin-btn">
+            <FontAwesomeIcon icon={faApple} className="brand-icon" />
+            SIGN IN WITH APPLE
+          </button>
         </div>
       </form>
     </div>

@@ -421,7 +421,7 @@ body{
 }
 
 /* login */
-.login-page{
+.login-page,.signup-page{
     display: flex;
     justify-content: center;
     padding-top: 40px;
@@ -451,6 +451,7 @@ body{
     border-radius: 5px;
     border: 1px solid rgb(191, 189, 189);
     outline: none;
+    width: 100%;
 }
 
 .inputbar:hover{
@@ -484,4 +485,35 @@ body{
 
 .submit-btn{
     background-color: rgb(254, 206, 83);
+}
+
+/* signUP */
+
+
+.signup-form-container{
+    width: 360px;
+    height: 540px;
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 5px grey;
+    background-color: white;
+}
+
+.names{
+    display: flex;
+    margin-right: 4px;
+}
+
+.signup-page h4{
+    text-align: center;
+}
+
+.signup-form-container p{
+    text-align: center;
+    padding-top: 12px;
+}
+
+.brand-icon{
+    padding-right: 16px;
 }
