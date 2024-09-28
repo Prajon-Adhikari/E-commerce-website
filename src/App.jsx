@@ -23,12 +23,31 @@ export default function App() {
   const [searchVal, setSearchVal] = useState("");
   const [productsItem, setProductsItem] = useState([]);
   const [categoryItem, setCategoryItem] = useState([]);
+  const [isBtnClicked, setIsBtnClicked] = useState({});
+  const [disableBtn, setDisableBtn] = useState({});
 
   function handleCartValue(id) {
+    if (disableBtn[id]) {
+      button.enabled = false;
+    }
+
     console.log("clicked");
     setQuantity((prev) => ({ ...prev, [id]: prev[id] + 1 }));
-    setIdValue((prev) => [...prev, id]);
+    setIdValue((prev) => {
+      if (!prev.includes(id)) {
+        return [...prev, id];
+      }
+      return prev;
+    });
     setCartValue((cartValue) => cartValue + 1);
+    console.log([id]);
+
+    setIsBtnClicked((prev) => ({
+      ...prev,
+      [id]: true,
+    }));
+
+    setDisableBtn((prev) => ({ ...prev, [id]: true }));
   }
 
   function handleSearchItem(searchVal) {
@@ -66,6 +85,9 @@ export default function App() {
           setSearchVal,
           handleCategoryItem,
           categoryItem,
+          isBtnClicked,
+          setIsBtnClicked,
+          setDisableBtn,
         }}
       >
         <BrowserRouter>

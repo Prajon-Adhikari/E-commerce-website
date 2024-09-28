@@ -6,8 +6,15 @@ import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 export default function Cart() {
   const [totalValue, setTotalValue] = useState(0);
-  const { setCartValue, idValue, cartValue, quantity, setQuantity } =
-    useContext(counterCartVAlue);
+  const {
+    setCartValue,
+    setIsBtnClicked,
+    setDisableBtn,
+    idValue,
+    cartValue,
+    quantity,
+    setQuantity,
+  } = useContext(counterCartVAlue);
 
   useEffect(() => {
     let initialTotal = 0;
@@ -27,6 +34,15 @@ export default function Cart() {
   }
 
   function decrementQuantity(id, amount) {
+    if (quantity[id] === 1) {
+      console.log("zero");
+      setIsBtnClicked((prev) => {
+        const { [id]: _, ...rest } = prev; // Destructure to exclude the clicked id
+        return rest;
+      });
+
+      setDisableBtn((prev) => ({ ...prev, [id]: false }));
+    }
     setQuantity((prev) => ({ ...prev, [id]: prev[id] - 1 }));
     setTotalValue((totalValue) => parseInt(totalValue) + parseInt(amount));
     setCartValue((cartValue) => cartValue - 1);

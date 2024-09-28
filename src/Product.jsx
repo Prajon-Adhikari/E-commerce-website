@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { counterCartVAlue } from "./Context";
+import tick from "./assets/double-check.png";
 
 export default function Product(props) {
   const value = useContext(counterCartVAlue);
@@ -15,10 +16,18 @@ export default function Product(props) {
           <h3>Rs. {price}</h3>
         </div>
         <button
-          className="add-button"
+          className={value.isBtnClicked[id] ? "added-button" : "add-button"}
           onClick={() => value.handleCartValue(id)}
         >
-          <span>Add To Cart</span>
+          <span>
+            {value.isBtnClicked[id] ? (
+              <>
+                Added <img src={tick} alt="tick" className="tick-img" />
+              </>
+            ) : (
+              "Add To Cart"
+            )}
+          </span>
         </button>
       </div>
     </div>

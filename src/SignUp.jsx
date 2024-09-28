@@ -24,7 +24,7 @@ export default function SignUp() {
           className="inputbar"
         />
         <input
-          type="number"
+          type="text"
           name=""
           id=""
           placeholder="Mobile"
