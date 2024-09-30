@@ -43,6 +43,11 @@ export default function Navbar() {
     setDisplayList(false);
   }
 
+  function handleCartPanel() {
+    data.setCartPanel(true);
+    document.body.style.overflow = "hidden";
+  }
+
   return (
     <div className="navbar-container">
       <h4>ELECTRONICS</h4>
@@ -125,12 +130,12 @@ export default function Navbar() {
             <span>Login</span>
           </button>
         </Link>
-        <Link to="/cart" className=" right-elements ">
+        <div className="right-elements" onClick={handleCartPanel}>
           <FontAwesomeIcon icon={faCartShopping} className="cart-button" />
           <span className={data.cartValue == 0 ? "ellapsed" : "cart-value"}>
             {data.cartValue}
           </span>
-        </Link>
+        </div>
       </div>
     </div>
   );

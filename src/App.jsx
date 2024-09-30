@@ -1,6 +1,5 @@
 import { React, useState } from "react";
 import HomePage from "./HomePage";
-import Cart from "./Cart";
 import About from "./About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { counterCartVAlue } from "./Context";
@@ -25,6 +24,7 @@ export default function App() {
   const [categoryItem, setCategoryItem] = useState([]);
   const [isBtnClicked, setIsBtnClicked] = useState({});
   const [disableBtn, setDisableBtn] = useState({});
+  const [cartPanel, setCartPanel] = useState(false);
 
   function handleCartValue(id) {
     if (disableBtn[id]) {
@@ -40,7 +40,6 @@ export default function App() {
       return prev;
     });
     setCartValue((cartValue) => cartValue + 1);
-    console.log([id]);
 
     setIsBtnClicked((prev) => ({
       ...prev,
@@ -48,6 +47,9 @@ export default function App() {
     }));
 
     setDisableBtn((prev) => ({ ...prev, [id]: true }));
+
+    setCartPanel(true);
+    document.body.style.overflow = "hidden";
   }
 
   function handleSearchItem(searchVal) {
@@ -88,12 +90,13 @@ export default function App() {
           isBtnClicked,
           setIsBtnClicked,
           setDisableBtn,
+          cartPanel,
+          setCartPanel,
         }}
       >
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/cart" element={<Cart />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUp />} />
