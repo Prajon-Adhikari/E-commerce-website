@@ -6,6 +6,8 @@ import { counterCartVAlue } from "./Context";
 import { ProductData } from "./ProductData";
 import LoginPage from "./LoginPage";
 import SignUp from "./SignUp";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
   const getDeafultQuantity = () => {
@@ -30,6 +32,10 @@ export default function App() {
     if (disableBtn[id]) {
       button.enabled = false;
     }
+
+    toast.success("Added Successfully to the cart", {
+      autoClose: 1000,
+    });
 
     console.log("clicked");
     setQuantity((prev) => ({ ...prev, [id]: prev[id] + 1 }));
@@ -103,6 +109,7 @@ export default function App() {
           </Routes>
         </BrowserRouter>
       </counterCartVAlue.Provider>
+      <ToastContainer position="top-center" />
     </div>
   );
 }

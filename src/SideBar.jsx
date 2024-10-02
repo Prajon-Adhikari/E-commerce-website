@@ -3,6 +3,7 @@ import { counterCartVAlue } from "./Context";
 import { ProductData } from "./ProductData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { loadStripe } from "@stripe/stripe-js";
 
 export default function SideBar() {
   const [totalValue, setTotalValue] = useState(0);
@@ -74,6 +75,12 @@ export default function SideBar() {
     setCartPanel(false);
     document.body.style.overflow = "auto";
   }
+
+  const makePayment = async () => {
+    const stripe = await loadStripe(
+      "pk_test_51Q52PIGWAUBGiSbnx6raJ4nPVktYVhPVJ4cSQWoF6tVL1vcOOHKjhawf9JretkN5eTc6QSBtQklGYuLMgCJOk4yb00WseWOw0d"
+    );
+  };
 
   return (
     <>
@@ -164,7 +171,7 @@ export default function SideBar() {
             <p> Rs : {totalValue}</p>
             <p className="tax-details">inclusive all taxes</p>
           </div>
-          <button>Pay Now</button>{" "}
+          <button onClick={makePayment}>Pay Now</button>{" "}
         </div>
       </div>
     </>
