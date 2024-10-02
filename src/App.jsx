@@ -1,11 +1,11 @@
 import { React, useState } from "react";
-import HomePage from "./HomePage";
-import About from "./About";
+import HomePage from "./Component/HomePage";
+import About from "./Component/About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { counterCartVAlue } from "./Context";
-import { ProductData } from "./ProductData";
-import LoginPage from "./LoginPage";
-import SignUp from "./SignUp";
+import { counterCartVAlue } from "./Component/Context";
+import { ProductData } from "./Component/ProductData";
+import LoginPage from "./Component/LoginPage";
+import SignUp from "./Component/SignUp";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

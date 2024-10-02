@@ -1,16 +1,16 @@
-import airpod1 from "./assets/NirvanIon.webp";
-import airpod2 from "./assets/Airdopes161.webp";
-import airpod3 from "./assets/NirvanaIonANC.webp";
-import watch1 from "./assets/LunarCallPro.webp";
-import watch2 from "./assets/FlashPlus.webp";
-import watch3 from "./assets/LunarTigon.webp";
-import watch4 from "./assets/Matrix.webp";
-import laptop1 from "./assets/Laptop.webp";
-import laptop from "./assets/Laptop2.jpg";
-import speaker1 from "./assets/SoundPro.webp";
-import speaker2 from "./assets/JBLPartyBox.webp";
-import speaker3 from "./assets/PartyPal63.webp";
-import speaker4 from "./assets/Stone1208.webp";
+import airpod1 from "../assets/NirvanIon.webp";
+import airpod2 from "../assets/Airdopes161.webp";
+import airpod3 from "../assets/NirvanaIonANC.webp";
+import watch1 from "../assets/LunarCallPro.webp";
+import watch2 from "../assets/FlashPlus.webp";
+import watch3 from "../assets/LunarTigon.webp";
+import watch4 from "../assets/Matrix.webp";
+import laptop1 from "../assets/Laptop.webp";
+import laptop from "../assets/Laptop2.jpg";
+import speaker1 from "../assets/SoundPro.webp";
+import speaker2 from "../assets/JBLPartyBox.webp";
+import speaker3 from "../assets/PartyPal63.webp";
+import speaker4 from "../assets/Stone1208.webp";
 
 export const ProductData = [
   {

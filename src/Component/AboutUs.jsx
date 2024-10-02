@@ -1,10 +1,10 @@
 import React from "react";
-import meeting1 from "./assets/meeting.webp";
-import meeting2 from "./assets/meeting2.webp";
-import person1 from "./assets/person1.jpeg";
-import person2 from "./assets/person2.jpg";
-import person3 from "./assets/person3.jpg";
-import person4 from "./assets/person4.jpg";
+import meeting1 from "../assets/meeting.webp";
+import meeting2 from "../assets/meeting2.webp";
+import person1 from "../assets/person1.jpeg";
+import person2 from "../assets/person2.jpg";
+import person3 from "../assets/person3.jpg";
+import person4 from "../assets/person4.jpg";
 
 export default function AboutUs() {
   return (

@@ -1,9 +1,9 @@
 import React from "react";
-import image1 from "./assets/image1.jpg";
-import image2 from "./assets/image2.webp";
-import image3 from "./assets/image3.webp";
-import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+import image1 from "../assets/image1.jpg";
+import image2 from "../assets/image2.webp";
+import image3 from "../assets/image3.webp";
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 export default function Home() {
   return (

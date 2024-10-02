@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { counterCartVAlue } from "./Context";
-import tick from "./assets/double-check.png";
+import tick from "../assets/double-check.png";
 
 export default function Product(props) {
   const value = useContext(counterCartVAlue);
