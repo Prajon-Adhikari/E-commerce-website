@@ -326,6 +326,11 @@ body{
     transition: transform 0.5s ease-in-out; /* Add a smooth transition */
 }
 
+.cartlist-container{
+    height: 560px;
+    overflow-y: scroll;
+}
+
 .side-cart-bar-open {
     transform: translateX(0); /* Slide-in when the cart is open */
   }
