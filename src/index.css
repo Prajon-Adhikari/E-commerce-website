@@ -327,7 +327,7 @@ body{
 }
 
 .cartlist-container{
-    height: 560px;
+    height: 540px;
     overflow-y: scroll;
 }
 
@@ -605,3 +605,143 @@ body{
     background-color: lightgray;
     padding: 20px;
 } 
+
+
+/* Payment */
+.payment-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-form{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 420px;
+    min-height: 400px;
+    background-color: #f9f9f9;
+}
+
+.payment-nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px 12px 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: white;
+}
+
+.payment-nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.payment-close-icon{
+    background-color: rgb(211, 205, 205);
+    color: white;
+    border-radius: 50%;
+    padding: 4px 6px;
+    font-size: 1rem;
+    margin-top: 4px;
+}
+
+.payment-order-details{
+    background-color: white;
+    margin: 10px 16px;
+    border-radius: 12px;
+}
+
+.order-summary{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 30px;
+    align-items: center; 
+    border-bottom: 1px solid rgb(200, 197, 197);
+}
+
+.gst{
+    text-align: center;
+    padding: 8px 0px;
+}
+
+.payment-personal-info{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.input{
+    padding: 4px 12px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    width: 70%; 
+}
+
+.payment-continue-btn{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    margin: 16px ;
+}
+
+.payment-continue-btn button{
+    width: 80%;
+    border-radius: 10px;
+    border: 1px solid grey;
+    outline: none;
+    padding: 6px;
+    background-color: rgb(151, 147, 147);
+    color: white;
+    font-size: 1.2rem;
+}
+
+.right-arrow{
+    font-size: 1rem;
+}
+
+.policy-info{
+    margin: 0px 20px 10px 20px;
+    text-align: center;
+}
+
+.payment-last-part{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+    margin: 0px 8px;
+    border-top: 1px solid grey;
+}
+
+.payment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .payment-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 998;
+  }
+  
+  .payment-modal-content {
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    z-index: 999;
+  }
+   
+  

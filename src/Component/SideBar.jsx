@@ -3,10 +3,11 @@ import { counterCartVAlue } from "./Context";
 import { ProductData } from "./ProductData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { loadStripe } from "@stripe/stripe-js";
+import Payment from "./Payment";
 
 export default function SideBar() {
   const [totalValue, setTotalValue] = useState(0);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
   const {
     setCartValue,
     setIsBtnClicked,
@@ -75,12 +76,6 @@ export default function SideBar() {
     setCartPanel(false);
     document.body.style.overflow = "auto";
   }
-
-  const makePayment = async () => {
-    const stripe = await loadStripe(
-      "pk_test_51Q52PIGWAUBGiSbnx6raJ4nPVktYVhPVJ4cSQWoF6tVL1vcOOHKjhawf9JretkN5eTc6QSBtQklGYuLMgCJOk4yb00WseWOw0d"
-    );
-  };
 
   return (
     <>
@@ -171,9 +166,17 @@ export default function SideBar() {
             <p> Rs : {totalValue}</p>
             <p className="tax-details">inclusive all taxes</p>
           </div>
-          <button onClick={makePayment}>Pay Now</button>{" "}
+          <button onClick={() => setShowPaymentModal(true)}>Pay Now</button>{" "}
         </div>
       </div>
+      {showPaymentModal && (
+        <div className="payment-modal">
+          <div className="payment-modal-overlay"></div>
+          <div className="payment-modal-content">
+            <Payment onClose={() => setShowPaymentModal(false)} />
+          </div>
+        </div>
+      )}
     </>
   );
 }

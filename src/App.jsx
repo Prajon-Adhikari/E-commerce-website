@@ -8,6 +8,7 @@ import LoginPage from "./Component/LoginPage";
 import SignUp from "./Component/SignUp";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Payment from "./Component/Payment";
 
 export default function App() {
   const getDeafultQuantity = () => {
@@ -106,6 +107,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/payment" element={<Payment />} />
           </Routes>
         </BrowserRouter>
       </counterCartVAlue.Provider>
