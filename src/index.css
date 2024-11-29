@@ -744,4 +744,6 @@ body{
     z-index: 999;
   }
    
-  
+.cardtype{
+    margin-right: 20px;
+}

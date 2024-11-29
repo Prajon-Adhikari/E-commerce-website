@@ -173,7 +173,10 @@ export default function SideBar() {
         <div className="payment-modal">
           <div className="payment-modal-overlay"></div>
           <div className="payment-modal-content">
-            <Payment onClose={() => setShowPaymentModal(false)} />
+            <Payment
+              onClose={() => setShowPaymentModal(false)}
+              totalAmount={totalValue}
+            />
           </div>
         </div>
       )}
