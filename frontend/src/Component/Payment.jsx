@@ -61,11 +61,32 @@ export default function Payment({ onClose, totalAmount }) {
                 required
               />
             </div>
+
             <div className="payment-continue-btn">
-              <button onClick={() => setShowPayElement(true)}>
-                Continue &nbsp;{" "}
-                <FontAwesomeIcon icon={faArrowRight} className="right-arrow" />
-              </button>
+              {fullName === "" || address === "" || mobile === "" ? (
+                <button
+                  onClick={() => setShowPayElement(true)}
+                  disabled
+                  className="disabled-btn"
+                >
+                  Continue &nbsp;{" "}
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="right-arrow"
+                  />
+                </button>
+              ) : (
+                <button
+                  onClick={() => setShowPayElement(true)}
+                  className="continue-btn"
+                >
+                  Continue &nbsp;{" "}
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="right-arrow"
+                  />
+                </button>
+              )}
             </div>
             <div className="policy-info">
               By proceeding, I accept that I have read and understood the
