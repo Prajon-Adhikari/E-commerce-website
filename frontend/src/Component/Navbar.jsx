@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -12,7 +12,7 @@ import { counterCartVAlue } from "./Context";
 import { ProductData } from "./ProductData";
 
 export default function Navbar() {
-  const { user, loginWithRedirect, isAuthenticated } = useAuth0();
+  // const { user, loginWithRedirect, isAuthenticated } = useAuth0();
   const productList = ProductData.map((products) => products.productName);
   const data = useContext(counterCartVAlue);
   const [productName, setProductName] = useState(productList);
@@ -126,15 +126,12 @@ export default function Navbar() {
             })}
           </div>
         </div>
-        <div className=" right-elements">
-          <button
-            className="login-container"
-            onClick={(e) => loginWithRedirect()}
-          >
+        <Link to="/user/signin" className=" right-elements">
+          <button className="login-container">
             <FontAwesomeIcon icon={faUser} />
             <span>Login</span>
           </button>
-        </div>
+        </Link>
         <div className="right-elements" onClick={handleCartPanel}>
           <FontAwesomeIcon icon={faCartShopping} className="cart-button" />
           <span className={data.cartValue == 0 ? "ellapsed" : "cart-value"}>

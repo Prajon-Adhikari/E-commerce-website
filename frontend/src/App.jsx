@@ -6,6 +6,7 @@ import { counterCartVAlue } from "./Component/Context";
 import { ProductData } from "./Component/ProductData";
 import LoginPage from "./Component/LoginPage";
 import SignUp from "./Component/SignUp";
+import SignIn from "./Component/SignIn";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -105,7 +106,8 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route path="/user/signin" element={<SignIn />} />
+            <Route path="/user/signup" element={<SignUp />} />
           </Routes>
         </BrowserRouter>
       </counterCartVAlue.Provider>

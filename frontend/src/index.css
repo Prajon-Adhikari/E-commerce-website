@@ -504,17 +504,18 @@ body{
 }
 
 /* login */
-.login-page,.signup-page{
+.signin-page,.signup-page{
     display: flex;
     justify-content: center;
+    align-items: center;
     padding-top: 40px;
     background-color: rgb(251, 251, 251);
     height: 100vh;
 }
 
-.form-container{
+.signin-form-container{
     width: 360px;
-    height: 420px;
+    max-height: 400px;
     border: 2px solid grey;
     border-radius: 10px;
     padding: 20px;
@@ -522,10 +523,6 @@ body{
     background-color: white;
 }
 
-.login-form{
-    display: flex;
-    flex-direction: column;
-}
 
 .inputbar{
     padding: 4px 12px;
@@ -541,22 +538,12 @@ body{
     border: 1px solid blue;
 }
 
-.login-form h4{
-    margin-bottom: 12px;
-    text-align: center;
-}
-
-.signup{
+ .signin{
     color: black;
     text-align: center;
     margin-top: 8px;
 }
 
-.login-form p{
-    font-size: 1.4rem;
-    text-align: center;
-    color: grey;
-}
 
 .signin-btn{
     background-color: white;
@@ -568,6 +555,12 @@ body{
 
 .submit-btn{
     background-color: rgb(254, 206, 83);
+}
+
+.registerlink{
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 20px;
 }
 
 /* signUP */
