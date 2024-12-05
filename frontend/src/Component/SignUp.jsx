@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faApple, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
@@ -13,11 +14,11 @@ export default function SignUp() {
   const [userPassword, setUserPassword] = useState("");
   const [userMobile, setUserMobile] = useState("");
 
-  const handleUserSingUp = async (e) => {
+  const handleUserSignUp = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/",
+        "http://localhost:3000/user/signup",
         { userFirstName, userLastName, userEmail, userPassword, userMobile },
         {
           headers: {
@@ -80,8 +81,8 @@ export default function SignUp() {
           value={userMobile}
           onChange={(e) => setUserMobile(e.target.value)}
         />
-        <button className="inputbar submit-btn" onClick={handleUserSingUp}>
-          Sing Up
+        <button className="inputbar submit-btn" onClick={handleUserSignUp}>
+          Sign Up
         </button>
         <p>or</p>
         <button className="inputbar signin-btn">

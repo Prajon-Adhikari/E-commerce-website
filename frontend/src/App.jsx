@@ -9,6 +9,7 @@ import SignUp from "./Component/SignUp";
 import SignIn from "./Component/SignIn";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Payment from "./Component/Payment";
 
 export default function App() {
   const getDeafultQuantity = () => {
@@ -28,6 +29,8 @@ export default function App() {
   const [isBtnClicked, setIsBtnClicked] = useState({});
   const [disableBtn, setDisableBtn] = useState({});
   const [cartPanel, setCartPanel] = useState(false);
+  const [totalValue, setTotalValue] = useState(0);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
 
   function handleCartValue(id) {
     if (disableBtn[id]) {
@@ -99,11 +102,25 @@ export default function App() {
           setDisableBtn,
           cartPanel,
           setCartPanel,
+          totalValue,
+          setTotalValue,
+          showPaymentModal,
+          setShowPaymentModal,
         }}
       >
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage />}>
+              <Route
+                path="/payment"
+                element={
+                  <Payment
+                    onClose={() => setShowPaymentModal(false)}
+                    totalAmount={totalValue}
+                  />
+                }
+              />
+            </Route>
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/user/signin" element={<SignIn />} />

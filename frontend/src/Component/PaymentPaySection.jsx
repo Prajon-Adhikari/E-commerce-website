@@ -20,8 +20,9 @@ export default function PaymentPaySection({
   const handlePayment = async (e) => {
     e.preventDefault();
     try {
+      console.log(cardType, fullName);
       const { data } = await axios.post(
-        "http://localhost:3000/",
+        "http://localhost:3000/payment",
         { fullName, address, mobile, cardType, cardNumber, amount },
         {
           headers: {
@@ -39,7 +40,7 @@ export default function PaymentPaySection({
   return (
     <>
       {!showPayDetails ? (
-        <form>
+        <form action="/payment">
           <div className="payment-pay-section">
             <div className="payment-form">
               <div className="payment-nav">

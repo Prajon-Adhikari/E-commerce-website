@@ -3,11 +3,9 @@ import { counterCartVAlue } from "./Context";
 import { ProductData } from "./ProductData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faXmark } from "@fortawesome/free-solid-svg-icons";
-import Payment from "./Payment";
+import { Link, Outlet } from "react-router-dom";
 
 export default function SideBar() {
-  const [totalValue, setTotalValue] = useState(0);
-  const [showPaymentModal, setShowPaymentModal] = useState(false);
   const {
     setCartValue,
     setIsBtnClicked,
@@ -18,6 +16,10 @@ export default function SideBar() {
     setQuantity,
     cartPanel,
     setCartPanel,
+    totalValue,
+    showPaymentModal,
+    setTotalValue,
+    setShowPaymentModal,
   } = useContext(counterCartVAlue);
   const sidebarRef = useRef(null);
 
@@ -166,17 +168,16 @@ export default function SideBar() {
             <p> Rs : {totalValue}</p>
             <p className="tax-details">inclusive all taxes</p>
           </div>
-          <button onClick={() => setShowPaymentModal(true)}>Pay Now</button>{" "}
+          <Link to="/payment">
+            <button onClick={() => setShowPaymentModal(true)}>Pay Now</button>{" "}
+          </Link>
         </div>
       </div>
       {showPaymentModal && (
         <div className="payment-modal">
           <div className="payment-modal-overlay"></div>
           <div className="payment-modal-content">
-            <Payment
-              onClose={() => setShowPaymentModal(false)}
-              totalAmount={totalValue}
-            />
+            <Outlet />
           </div>
         </div>
       )}
