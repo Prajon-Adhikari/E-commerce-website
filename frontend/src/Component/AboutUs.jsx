@@ -5,10 +5,71 @@ import person1 from "../assets/person1.jpeg";
 import person2 from "../assets/person2.jpg";
 import person3 from "../assets/person3.jpg";
 import person4 from "../assets/person4.jpg";
+import meeting3 from "../assets/meeting3.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTruck } from "@fortawesome/free-solid-svg-icons";
 
 export default function AboutUs() {
   return (
     <div>
+      <div className="aboutus-hero-section">
+        <div className="left-aboutus-hero-section">
+          <p>Branded &nbsp; | &nbsp; Quality &nbsp; | &nbsp; Products</p>
+          <h2>
+            WE OFFER <span>QUALITY</span> PRODUCTS
+          </h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non amet
+            neque nobis. Fugiat eos id esse excepturi velit, debitis alias.
+          </p>
+          <button>Read More &rarr;</button>
+        </div>
+        <div className="right-aboutus-hero-section">
+          <img src={meeting3} alt="" />
+        </div>
+      </div>
+
+      <div className="features-section">
+        <div className="features">
+          <div className="feature-top-section">
+            <p>01</p>
+          </div>
+          <div className="feature-bottom-section">
+            <h3>Best Quality</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+              deserunt ad, officiis illo voluptates aspernatur quod quidem unde
+              perferendis nostrum!
+            </p>
+          </div>
+        </div>
+        <div className="features">
+          <div className="feature-top-section">
+            <p>02</p>
+          </div>
+          <div className="feature-bottom-section">
+            <h3>Fast Delivery</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+              deserunt ad, officiis illo voluptates aspernatur quod quidem unde
+              perferendis nostrum!
+            </p>
+          </div>
+        </div>
+        <div className="features">
+          <div className="feature-top-section">
+            <p>03</p>
+          </div>
+          <div className="feature-bottom-section">
+            <h3>Best Price</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+              deserunt ad, officiis illo voluptates aspernatur quod quidem unde
+              perferendis nostrum!
+            </p>
+          </div>
+        </div>
+      </div>
       <div className="aboutus-contents">
         <h2>ABOUT US</h2>
         <p>

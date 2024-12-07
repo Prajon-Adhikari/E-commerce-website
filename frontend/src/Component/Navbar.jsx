@@ -1,5 +1,4 @@
 import React, { useContext, useState, useRef } from "react";
-// import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -12,7 +11,6 @@ import { counterCartVAlue } from "./Context";
 import { ProductData } from "./ProductData";
 
 export default function Navbar() {
-  // const { user, loginWithRedirect, isAuthenticated } = useAuth0();
   const productList = ProductData.map((products) => products.productName);
   const data = useContext(counterCartVAlue);
   const [productName, setProductName] = useState(productList);
