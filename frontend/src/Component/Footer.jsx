@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <div className="footer-container">
       <div className="footer-logo">
-        <h2>ELECTRONICS</h2>
+        <h2>E-COMMERCE</h2>
       </div>
       <div className="shop-container">
         <h5>Shop</h5>

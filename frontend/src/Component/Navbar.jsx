@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 // import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useLocation } from "react-router-dom";
@@ -17,6 +17,8 @@ export default function Navbar() {
   const data = useContext(counterCartVAlue);
   const [productName, setProductName] = useState(productList);
   const [displayList, setDisplayList] = useState(false);
+
+  const inputRef = useRef(null);
 
   const location = useLocation();
 
@@ -52,7 +54,7 @@ export default function Navbar() {
 
   return (
     <div className="navbar-container">
-      <h4>ELECTRONICS</h4>
+      <h4>E-COMMERCE</h4>
       <div className="nav-elements">
         <Link to="/" className={location.pathname === "/" ? "active-link" : ""}>
           HOME
@@ -72,9 +74,13 @@ export default function Navbar() {
           >
             <option value="">CATEGORY</option>
             <option value="airpod">AIRPOD</option>
+            <option value="bag">BAG</option>
+            <option value="bottle">BOTTLE</option>
             <option value="watch">WATCH</option>
             <option value="laptop">LAPTOP</option>
             <option value="speaker">SPEAKER</option>
+            <option value="shoes">SHOES</option>
+            <option value="t-shirt">T-SHIRT</option>
           </select>
         </Link>
         <Link
@@ -88,11 +94,19 @@ export default function Navbar() {
         <div className="searchbar-container">
           <div className="search-bar-container">
             <input
+              ref={inputRef}
               type="text"
               className="search-bar"
               placeholder="Search..."
               value={data.searchVal}
               onChange={(e) => handleSearchVal(e)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  console.log(e.key);
+                  console.log(data.searchVal);
+                  data.handleSearchItem(data.searchVal);
+                }
+              }}
             />
             <div className="xmark-container" onClick={clearSearchVal}>
               <FontAwesomeIcon
@@ -117,6 +131,7 @@ export default function Navbar() {
                     data.setSearchVal(product);
                     setTimeout(() => {
                       handleHideList();
+                      inputRef.current.focus();
                     }, 0);
                   }}
                 >
