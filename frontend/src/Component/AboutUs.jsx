@@ -7,7 +7,7 @@ import person3 from "../assets/person3.jpg";
 import person4 from "../assets/person4.jpg";
 import meeting3 from "../assets/meeting3.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTruck } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 export default function AboutUs() {
   return (
@@ -71,31 +71,66 @@ export default function AboutUs() {
         </div>
       </div>
       <div className="aboutus-contents">
-        <h2>ABOUT US</h2>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Necessitatibus explicabo ratione ut, hic, placeat eum dolor obcaecati,
-          laboriosam corporis quo eaque? Autem incidunt assumenda dicta quae
-          sunt, ullam et illum nulla, deserunt laborum minus dignissimos impedit
-          accusantium. Alias, officiis suscipit eaque adipisci voluptas laborum
-          sit voluptatibus doloribus modi quas deleniti obcaecati maiores, neque
-          praesentium provident itaque, repudiandae ab ipsam ipsum. Magni, vero!
-          Autem veritatis similique aut at, consequatur sint animi molestiae
-          explicabo mollitia unde et sapiente nesciunt ipsum, ad, officiis
-          quidem modi ut voluptas a vero omnis dolorum. Nostrum quos beatae
-          cumque molestiae, maxime deserunt, harum, voluptatum nihil quo dolor
-          porro inventore. Consectetur iusto, molestiae vitae officia explicabo
-          quas esse amet repellat! Laborum maiores assumenda error reiciendis ex
-          distinctio maxime, magni cum atque rem veniam tempore ad dolore
-          officia laboriosam quas expedita nemo ipsa quisquam ullam. Doloribus
-          libero incidunt aliquid officiis nostrum ullam mollitia vero dicta
-          eius possimus explicabo, ab sunt culpa voluptate quae ipsum amet enim
-          corporis quidem itaque dolores distinctio modi. Dolores temporibus
-          dicta accusantium, a delectus labore rem dolor explicabo
-          necessitatibus impedit. Quo quis eos ratione quia? Atque officiis,
-          eveniet mollitia dicta fugiat hic itaque quos, ut doloribus natus cum,
-          consequuntur numquam quam earum nesciunt minima excepturi.
-        </p>
+        <img className="aboutus-content-image" src={meeting3} alt="" />
+        <div className="aboutus-description">
+          <h4>ABOUT US</h4>
+          <h2>Building More Business Competition</h2>
+          <p className="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
+            eligendi odio cupiditate, minus consectetur provident placeat, atque
+            magni libero culpa unde reprehenderit molestias vel repellat? Dolor
+            nulla quia eveniet quod.
+          </p>
+          <div className="qualities">
+            <div className="quality">
+              <FontAwesomeIcon
+                icon={faCheckCircle}
+                className="circle-check-icon"
+              />
+              <p>Technology Services</p>
+            </div>
+            <div className="quality">
+              <FontAwesomeIcon
+                icon={faCheckCircle}
+                className="circle-check-icon"
+              />
+              <p>Technology Services</p>
+            </div>
+            <div className="quality">
+              <FontAwesomeIcon
+                icon={faCheckCircle}
+                className="circle-check-icon"
+              />
+              <p>Technology Services</p>
+            </div>
+            <div className="quality">
+              <FontAwesomeIcon
+                icon={faCheckCircle}
+                className="circle-check-icon"
+              />
+              <p>Technology Services</p>
+            </div>
+          </div>
+          <div className="experiences">
+            <div className="experience">
+              <p className="experience-section-leftside">
+                10 <sup>+</sup>
+              </p>
+              <p className="experience-section-rightside">
+                Years of Experience
+              </p>
+            </div>
+            <div className="experience">
+              <p className="experience-section-leftside">
+                70 <sup>k</sup>
+              </p>
+              <p className="experience-section-rightside">
+                Individual Customers
+              </p>
+            </div>
+          </div>
+          <button className="learn-btn">Learn More &rarr;</button>
+        </div>
       </div>
       <div className="meeting-contents">
         <div className="meeting-image">

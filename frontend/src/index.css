@@ -482,7 +482,7 @@ body{
     color: rgb(227, 64, 64);
 }
 
-.left-aboutus-hero-section button{
+.left-aboutus-hero-section button, .learn-btn{
     color: white;
     background-color: rgb(216, 73, 73);
     border: none;
@@ -545,21 +545,94 @@ body{
     -webkit-text-stroke: 1px;
 }
 
+/* aboutus content */
+
 
 .aboutus-contents{
     display: flex;
-    height: 400px;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0px 160px;
+    align-items: center;
+    gap: 100px ;
+    padding: 0px 160px 0px 180px;
+    margin: 140px 0px;
 }
 
-.aboutus-contents h2{
+.aboutus-content-image{
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    box-shadow: -10px -10px 10px grey;
+}
+
+.aboutus-description h4{
+    color: rgb(216, 73, 73);
+    text-decoration: underline;
+    font-size: 1.8rem;
+    -webkit-text-stroke: 1px;
+}
+
+.description{
+    font-size: 1.3rem;
+    margin-top: 14px;
+}
+
+.aboutus-description h2{
+    -webkit-text-stroke: 1px;
+    font-size: 4rem;
+}
+
+/* qualitites */
+.qualities{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 1.5rem;
+    margin: 50px 18px;
+}
+
+.quality{
+    display: flex;
+    gap: 20px;
+}
+
+.circle-check-icon{
+    color: rgb(216, 73, 73); 
+    padding-top: 6px;    
+}
+
+/* experiences */
+.experiences{
+    display: flex;
+    gap: 60px;
+}
+
+.experience{
+    display: flex;
+    border: 1px dotted black;
+    width: 260px;
+    gap: 20px;
+    padding: 8px 16px;
+    align-items: center;
+}
+
+sup{
+    font-weight: 300;
+}
+
+.experience-section-leftside{
     font-size: 3rem;
+    -webkit-text-stroke: 2px;
 }
 
-.aboutus-contents p{
-    font-size: 1.2rem;
+.experience-section-rightside{
+    font-size: 1.6rem;
+    width: 130px;
+    font-weight: 500;
+}
+
+.learn-btn{
+    margin-top: 40px;
 }
 
 /* meeting */
