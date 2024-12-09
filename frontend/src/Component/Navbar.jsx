@@ -83,7 +83,7 @@ export default function Navbar() {
         </Link>
         <Link
           to="/blogs"
-          className={location.pathname === "/blog" ? "active-link" : ""}
+          className={location.pathname === "/blogs" ? "active-link" : ""}
         >
           BLOGS
         </Link>
