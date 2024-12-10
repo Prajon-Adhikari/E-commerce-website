@@ -81,29 +81,29 @@ export default function AboutUs() {
             magni libero culpa unde reprehenderit molestias vel repellat? Dolor
             nulla quia eveniet quod.
           </p>
-          <div className="qualities">
-            <div className="quality">
+          <div className="about-qualities">
+            <div className="about-quality">
               <FontAwesomeIcon
                 icon={faCheckCircle}
                 className="circle-check-icon"
               />
               <p>Technology Services</p>
             </div>
-            <div className="quality">
+            <div className="about-quality">
               <FontAwesomeIcon
                 icon={faCheckCircle}
                 className="circle-check-icon"
               />
               <p>Technology Services</p>
             </div>
-            <div className="quality">
+            <div className="about-quality">
               <FontAwesomeIcon
                 icon={faCheckCircle}
                 className="circle-check-icon"
               />
               <p>Technology Services</p>
             </div>
-            <div className="quality">
+            <div className="about-quality">
               <FontAwesomeIcon
                 icon={faCheckCircle}
                 className="circle-check-icon"

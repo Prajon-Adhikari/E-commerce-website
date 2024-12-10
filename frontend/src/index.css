@@ -584,14 +584,14 @@ body{
 }
 
 /* qualitites */
-.qualities{
+.about-qualities{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     font-size: 1.5rem;
     margin: 50px 18px;
 }
 
-.quality{
+.about-quality{
     display: flex;
     gap: 20px;
 }
@@ -959,19 +959,21 @@ sup{
 
 /* blogs */
 .blog-hero-image{
-    background: url(./assets/image1.webp);
-    height: 400px;
+    background: url(./assets/blog-hero-image.jpg);
+    height: 500px;
     background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     color: white;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0px 300px;
+    gap: 12px;
 }
 
 .blog-hero-image h2{
-    font-size: 4rem;
+    font-size: 5rem;
 }
 
 .blog-hero-image p{
@@ -983,13 +985,19 @@ sup{
     margin: 100px 140px;
     display: flex;
     gap: 100px;
+    position: relative;
+}
+
+.left-main-blog-page{
+    position: sticky;
+    top: 100px;
 }
 
 .blog-searchbar{
     width: 260px;
     padding: 5px 16px;
     font-size: 1rem;
-    background-color: rgb(243, 240, 240);
+    background-color: rgb(221, 216, 216);
     border: none;
     border-radius: 5px;
 }
@@ -1003,7 +1011,6 @@ sup{
 }
 
 .category{
-    border: 1px solid black;
     margin-bottom: 20px;
     height: 80px;
     width: 300px;
@@ -1014,9 +1021,32 @@ sup{
     -webkit-text-stroke: 1px;
     text-transform: uppercase;
     border-radius: 10px;
-    background: url(./assets/image2.webp);
-    background-size: cover;
     color: white;
+    cursor: pointer;
+}
+
+.culture{
+    background: url(./assets/culture.jpg);
+    background-size: cover;
+}
+
+.creativity{
+    background: url(./assets/creativity.jpg);
+    background-size: cover;
+}
+
+.technology{
+    background: url(./assets/technology.jpg);
+    background-size: cover;
+}
+
+.product{
+    background: url(./assets/product.jpg);
+}
+
+.quality{
+    background: url(./assets/quality.jpg);
+    background-size: cover;
 }
 
 .right-main-blog-page{
@@ -1044,3 +1074,29 @@ sup{
     padding: 16px 20px;
 }
 
+
+.blog-user{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    margin-right: 20px;
+    font-size: 1.1rem;
+}
+
+.blog-user img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.heart-icon{
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.heart-icon:hover{
+    color: red;
+}
