@@ -1100,3 +1100,7 @@ sup{
 .heart-icon:hover{
     color: red;
 }
+
+.liked{
+    color: red;
+}
