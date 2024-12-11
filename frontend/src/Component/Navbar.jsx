@@ -20,6 +20,8 @@ export default function Navbar() {
 
   const location = useLocation();
 
+  const { userName } = location.state || {};
+
   function handleSearchVal(event) {
     data.setSearchVal(event.target.value);
     setDisplayList(true);
@@ -139,12 +141,19 @@ export default function Navbar() {
             })}
           </div>
         </div>
-        <Link to="/user/signin" className=" right-elements">
-          <button className="login-container">
+        {userName ? (
+          <div className="user-container">
             <FontAwesomeIcon icon={faUser} />
-            <span>Login</span>
-          </button>
-        </Link>
+            <span>{userName}</span>
+          </div>
+        ) : (
+          <Link to="/user/signin" className="right-elements">
+            <button className="login-container">
+              <FontAwesomeIcon icon={faUser} />
+              <span>Login</span>
+            </button>
+          </Link>
+        )}
         <div className="right-elements" onClick={handleCartPanel}>
           <FontAwesomeIcon icon={faCartShopping} className="cart-button" />
           <span className={data.cartValue == 0 ? "ellapsed" : "cart-value"}>
