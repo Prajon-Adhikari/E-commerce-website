@@ -4,23 +4,29 @@ import tick from "../assets/double-check.png";
 
 export default function Product(props) {
   const value = useContext(counterCartVAlue);
-  const { id, image, productName, price } = props.data;
+  console.log(props);
   return (
     <div className="product-container">
       <div className="product-img-container">
-        <img src={image} alt="" className="product-img" />
+        <img
+          src={`http://localhost:3000/${props.data.productImage}`}
+          alt=""
+          className="product-img"
+        />
       </div>
       <div className="product-information">
         <div className="info">
-          <h3>{productName}</h3>
-          <h3>Rs. {price}</h3>
+          <h3>{props.data.productName}</h3>
+          <h3>Rs. {props.data.productPrice}</h3>
         </div>
         <button
-          className={value.isBtnClicked[id] ? "added-button" : "add-button"}
-          onClick={() => value.handleCartValue(id)}
+          className={
+            value.isBtnClicked[props.data._id] ? "added-button" : "add-button"
+          }
+          onClick={() => value.handleCartValue(props.data._id)}
         >
           <span>
-            {value.isBtnClicked[id] ? (
+            {value.isBtnClicked[props.data._id] ? (
               <>
                 Added <img src={tick} alt="tick" className="tick-img" />
               </>

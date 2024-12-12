@@ -17,12 +17,10 @@ router.post("/signin", async (req, res) => {
       return res.status(400).json({ message: "Password is incorrect" });
     }
 
-    return res
-      .status(200)
-      .json({
-        message: "Signed In successfully",
-        userName: user.userFirstName,
-      });
+    return res.status(200).json({
+      message: "Signed In successfully",
+      userName: user.userFirstName,
+    });
   } catch (error) {
     console.error("Error during sign-in:", error);
     return res.status(500).json({ message: "Server error" });
@@ -38,6 +36,7 @@ router.post("/signup", async (req, res) => {
     userEmail,
     userPassword,
     userMobile,
+    role: "user",
   });
   return res.status(200).json({ message: "User register successfully" });
 });

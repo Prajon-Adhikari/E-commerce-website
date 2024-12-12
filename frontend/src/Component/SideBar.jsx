@@ -4,6 +4,7 @@ import { ProductData } from "./ProductData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Link, Outlet } from "react-router-dom";
+import axios from "axios";
 
 export default function SideBar() {
   const {
@@ -23,11 +24,29 @@ export default function SideBar() {
   } = useContext(counterCartVAlue);
   const sidebarRef = useRef(null);
 
+  const [products, setProducts] = useState([]);
+
+  // Fetch products from the backend
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/");
+        console.log(response.data);
+        setProducts(response.data); // Update state with fetched products
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   useEffect(() => {
     let initialTotal = 0;
     idValue.forEach((idVal) => {
-      const product = ProductData.find((p) => p.id === idVal);
+      const product = products.find((p) => p.id === idVal);
       if (product) {
+        console.log(product);
         initialTotal += product.price * quantity[product.id];
       }
     });
@@ -104,20 +123,20 @@ export default function SideBar() {
           {idValue.length > 0 ? (
             <div className="cartlist-container">
               {idValue.map((idVal, index) =>
-                ProductData.map((products, index) =>
-                  products.id == idVal ? (
-                    quantity[products.id] > 0 ? (
+                products.map((product, index) =>
+                  product._id == idVal ? (
+                    quantity[product._id] > 0 ? (
                       <div className="cart-box-container" key={index}>
                         <div className="cart-image-container">
                           <img
-                            src={products.image}
+                            src={product.data.image}
                             alt=""
                             className="cart-image"
                           />
                         </div>
                         <div className="cart-details">
                           <p className="cart-product-details">
-                            {products.productName}
+                            {product.data.productName}
                           </p>
                           <p className="cart-product-details">
                             Rs : {products.price}
@@ -126,7 +145,10 @@ export default function SideBar() {
                             <button
                               className="plus-button"
                               onClick={() => {
-                                incrementQuantity(products.id, products.price);
+                                incrementQuantity(
+                                  product._id,
+                                  product.productPrice
+                                );
                               }}
                             >
                               <FontAwesomeIcon
@@ -134,11 +156,14 @@ export default function SideBar() {
                                 className="plus-icon"
                               />
                             </button>
-                            <p>{quantity[products.id]}</p>
+                            <p>{quantity[product._id]}</p>
                             <button
                               className="minus-button"
                               onClick={() => {
-                                decrementQuantity(products.id, products.price);
+                                decrementQuantity(
+                                  product._id,
+                                  product.data.productPrice
+                                );
                               }}
                             >
                               <FontAwesomeIcon
