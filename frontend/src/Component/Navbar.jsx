@@ -142,10 +142,12 @@ export default function Navbar() {
           </div>
         </div>
         {userName ? (
-          <div className="user-container">
-            <FontAwesomeIcon icon={faUser} />
-            <span>{userName}</span>
-          </div>
+          <>
+            <div className="user-container">
+              <FontAwesomeIcon icon={faUser} />
+              <span>{userName}</span>
+            </div>
+          </>
         ) : (
           <Link to="/user/signin" className="right-elements">
             <button className="login-container">

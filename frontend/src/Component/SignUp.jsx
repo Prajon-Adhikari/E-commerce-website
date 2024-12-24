@@ -4,6 +4,7 @@ import { faApple, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -93,6 +94,9 @@ export default function SignUp() {
           <FontAwesomeIcon icon={faApple} className="brand-icon" />
           SIGN IN WITH APPLE
         </button>
+        <p className="registerlink">
+          Already have an account ? <Link to="/user/signin"> Log In </Link>
+        </p>
       </form>
     </div>
   );

@@ -104,7 +104,7 @@ export default function App() {
 
   function handleCategoryItem(categorySelected) {
     const filteredCategory = productData.filter(
-      (product) => product.category === categorySelected
+      (product) => product.productCategory === categorySelected
     );
     setCategoryItem(filteredCategory);
     console.log(filteredCategory);
