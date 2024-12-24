@@ -1,6 +1,5 @@
 import React, { useContext, useRef, useEffect, useState } from "react";
 import { counterCartVAlue } from "./Context";
-import { ProductData } from "./ProductData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Link, Outlet } from "react-router-dom";
@@ -44,10 +43,10 @@ export default function SideBar() {
   useEffect(() => {
     let initialTotal = 0;
     idValue.forEach((idVal) => {
-      const product = products.find((p) => p.id === idVal);
+      const product = products.find((p) => p._id === idVal);
       if (product) {
-        console.log(product);
-        initialTotal += product.price * quantity[product.id];
+        console.log("p", product);
+        initialTotal += product.productPrice * quantity[product._id];
       }
     });
     setTotalValue(initialTotal);
@@ -120,26 +119,29 @@ export default function SideBar() {
             </span>
           </p>
           <p className="cart-text">Total Items: {cartValue}</p>
+          {console.log("idValue:", idValue)} {/* Logs the current idValue */}
+          {console.log("Products:", products)}{" "}
+          {/* Logs the current products array */}
           {idValue.length > 0 ? (
             <div className="cartlist-container">
               {idValue.map((idVal, index) =>
                 products.map((product, index) =>
-                  product._id == idVal ? (
+                  product._id === idVal ? (
                     quantity[product._id] > 0 ? (
                       <div className="cart-box-container" key={index}>
                         <div className="cart-image-container">
                           <img
-                            src={product.data.image}
+                            src={`http://localhost:3000/${product.productImage}`}
                             alt=""
                             className="cart-image"
                           />
                         </div>
                         <div className="cart-details">
                           <p className="cart-product-details">
-                            {product.data.productName}
+                            {product.productName}
                           </p>
                           <p className="cart-product-details">
-                            Rs : {products.price}
+                            Rs : {product.productPrice}
                           </p>
                           <div className="quantity-handler">
                             <button
@@ -162,7 +164,7 @@ export default function SideBar() {
                               onClick={() => {
                                 decrementQuantity(
                                   product._id,
-                                  product.data.productPrice
+                                  product.productPrice
                                 );
                               }}
                             >

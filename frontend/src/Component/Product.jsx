@@ -4,7 +4,6 @@ import tick from "../assets/double-check.png";
 
 export default function Product(props) {
   const value = useContext(counterCartVAlue);
-  console.log(props);
   return (
     <div className="product-container">
       <div className="product-img-container">
@@ -19,22 +18,29 @@ export default function Product(props) {
           <h3>{props.data.productName}</h3>
           <h3>Rs. {props.data.productPrice}</h3>
         </div>
-        <button
-          className={
-            value.isBtnClicked[props.data._id] ? "added-button" : "add-button"
-          }
-          onClick={() => value.handleCartValue(props.data._id)}
-        >
-          <span>
-            {value.isBtnClicked[props.data._id] ? (
-              <>
-                Added <img src={tick} alt="tick" className="tick-img" />
-              </>
-            ) : (
-              "Add To Cart"
-            )}
-          </span>
-        </button>
+        {value.isBtnClicked[props.data._id] ? (
+          <button
+            className="added-button"
+            onClick={() => value.handleCartValue(props.data._id)}
+            disabled
+          >
+            <>
+              Added{" "}
+              {value.isBtnClicked[props.data._id] ? (
+                <img src={tick} alt="tick" className="tick-img" />
+              ) : (
+                ""
+              )}
+            </>
+          </button>
+        ) : (
+          <button
+            className="add-button"
+            onClick={() => value.handleCartValue(props.data._id)}
+          >
+            <span> Add To Cart</span>
+          </button>
+        )}
       </div>
     </div>
   );
