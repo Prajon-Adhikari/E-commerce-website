@@ -1,0 +1,3 @@
+[build]
+# Run the commands inside the backend folder
+command = "cd backend && npm install && npm start"
