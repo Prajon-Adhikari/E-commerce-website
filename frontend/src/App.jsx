@@ -30,7 +30,6 @@ export default function App() {
     axios
       .get("http://localhost:3000/") // Replace with your backend endpoint
       .then((response) => {
-        console.log("Fetched product data:", response.data);
         setProductData(response.data);
         const initialQuantity = {};
         response.data.forEach((product) => {
@@ -48,18 +47,13 @@ export default function App() {
   }, [isBtnClicked]);
 
   function handleCartValue(id) {
-    console.log("Adding product with ID:", id);
-    console.log("Quantity Object:", quantity);
-
     // Check if quantity object contains the id
     if (!(id in quantity)) {
-      console.warn(`ID ${id} not found in quantity object`);
       return;
     }
 
     // Proceed only if the quantity is defined and greater than 0
     if (quantity[id] === undefined) {
-      console.warn(`ID ${id} has undefined quantity.`);
       return;
     }
 
@@ -99,7 +93,6 @@ export default function App() {
       (product) => product.productName.toLowerCase() === searchVal.toLowerCase()
     );
     setProductsItem(filteredItem);
-    console.log(filteredItem);
   }
 
   function handleCategoryItem(categorySelected) {
@@ -107,10 +100,7 @@ export default function App() {
       (product) => product.productCategory === categorySelected
     );
     setCategoryItem(filteredCategory);
-    console.log(filteredCategory);
   }
-
-  console.log(quantity);
 
   return (
     <div>

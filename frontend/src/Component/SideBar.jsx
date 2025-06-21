@@ -30,7 +30,6 @@ export default function SideBar() {
     const fetchProducts = async () => {
       try {
         const response = await axios.get("http://localhost:3000/");
-        console.log(response.data);
         setProducts(response.data); // Update state with fetched products
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -45,7 +44,6 @@ export default function SideBar() {
     idValue.forEach((idVal) => {
       const product = products.find((p) => p._id === idVal);
       if (product) {
-        console.log("p", product);
         initialTotal += product.productPrice * quantity[product._id];
       }
     });
@@ -60,7 +58,6 @@ export default function SideBar() {
 
   function decrementQuantity(id, amount) {
     if (quantity[id] === 1) {
-      console.log("zero");
       setIsBtnClicked((prev) => {
         const { [id]: _, ...rest } = prev; // Destructure to exclude the clicked id
         return rest;
@@ -110,7 +107,6 @@ export default function SideBar() {
             : " side-cart-bar ellapsed"
         }
       >
-        {console.log(cartPanel)}
         <div>
           <p className="cart-text top-cart-panel">
             <p>Cart Items</p>
@@ -119,9 +115,6 @@ export default function SideBar() {
             </span>
           </p>
           <p className="cart-text">Total Items: {cartValue}</p>
-          {console.log("idValue:", idValue)} {/* Logs the current idValue */}
-          {console.log("Products:", products)}{" "}
-          {/* Logs the current products array */}
           {idValue.length > 0 ? (
             <div className="cartlist-container">
               {idValue.map((idVal, index) =>

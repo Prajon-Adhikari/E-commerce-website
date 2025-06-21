@@ -11,8 +11,9 @@ export default function Item() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/");
-        setProducts(response.data);
+        const response = await fetch("http://localhost:3000/");
+        const data = await response.json();
+        setProducts(data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
